@@ -30,18 +30,21 @@ public class Rainfall {
         System.out.println("\nRianfall for " + year + ":");
         for(int i = 0; i < 12; i++) {
             double rain = rainfall[index][i];
-            System.out.printf("%s: %.2f inches\\n", months[i], rain); //referencia: https://docs.oracle.com/cd/E19253-01/817-6223/chp-fmt-1/index.html
+            System.out.println(months[i] + ": " + String.format("%.2f", rain) + " inches"); //referencia: https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html
             total += rain;
 
+            if(rain > maxRain) {
+                maxRain = rain;
+                maxMonth = i;
+            }
             if(rain < minRain) {
                 minRain = rain;
                 minMonth = i;
             }
-        System.out.println("Month with most rain: " + months[maxMonth] + " (" + maxRain + " inches)");
-        System.out.println("Month with least rain: " + months[minMonth] + " (" + minRain + " inches)");
-        System.out.println("Total rainfall for " + year + ": " + total + " inches");
-
         }
+        System.out.println("Month with most rain: " + months[maxMonth] + " (" + String.format("%.2f", maxRain) + " inches)");
+        System.out.println("Month with least rain: " + months[minMonth] + " (" + String.format("%.2f", minRain) + " inches)");
+        System.out.println("Total rainfall for " + year + ": " + String.format("%.2f", total) + " inches");
 
 
     }
