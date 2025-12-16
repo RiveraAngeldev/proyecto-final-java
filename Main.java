@@ -28,9 +28,33 @@ public class Main {
                     rainfall.displayYearData(year);
                     break;
                 
-                default:
-                    throw new AssertionError();
+               case 2:
+                    System.out.println("Total Rainfall and average:\n");
+                    rainfall.viewTotals();
+                    break;
+                 
+                case 3:
+                    System.out.println("Highest and lowest year:\n");
+                    rainfall.viewYearPeaks();
+                    break;
+                    
+                case 4: 
+                    System.out.println("View all data/table\n");
+                    rainfall.displayDataTable();
+                    break;
 
+                case 5: 
+                    System.out.println("Thank you for using the program!");
+                    System.out.println("Goodbye!");
+                    break;
+
+               
+               
+               
+                    default:
+                   System.out.println("Invalid option!!");
+                   System.out.println("Choose between 1-5");
+                   break;
             }
         }while(op !=5);
 
