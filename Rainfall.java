@@ -69,7 +69,7 @@ public class Rainfall {
         System.out.println("\nRianfall for " + year + ":");
         for(int i = 0; i < 12; i++) {
             double rain = rainfall[index][i];
-            System.out.println(months[i] + ": " + String.format("%.2f", rain) + " inches"); //referencia: https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html
+            System.out.println(months[i] + ": " + String.format("%.2f", rain) + " inches");
             total += rain;
 
             if(rain > maxRain) {
@@ -138,5 +138,22 @@ public class Rainfall {
         System.out.printf("Year with least rain: %d (%.2f inche)\n", years[minIndex], min);
     }
 
+    public void displayDataTable() {
+        System.out.printf("%-6s", "Year");
+        for(String month : months) {
+            System.out.printf("%10s", month);
+        }
+        System.out.println();
+        for(int i = 0; i < rainfall.length; i++) {
+            System.out.printf("%-6d", years[i]);
+            for(int k = 0; k < 12; k++) {
+                System.out.printf("%10.2f", rainfall[i][k]);
+            }
+            System.out.println();
+        }
+    }
 }
+//Referencias:
+// https://docs.oracle.com/javase/tutorial/java/data/numberformat.html#:~:text=example%20would%20be-,System.,version%20with%20the%20following%20syntax:
+// https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html
 
