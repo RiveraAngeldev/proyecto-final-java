@@ -14,6 +14,8 @@ public class Rainfall {
     }
     private void initData() {
         rainfall[0][0] = 2.11; // 2022 - January
+        rainfall[0][1] = 1.13; // 2022 - February
+
     }
 
     public void displayYearData(int year) {
@@ -42,9 +44,9 @@ public class Rainfall {
                 minMonth = i;
             }
         }
-        System.out.println("Month with most rain: " + months[maxMonth] + " (" + String.format("%.2f", maxRain) + " inches)");
+        System.out.println("\nMonth with most rain: " + months[maxMonth] + " (" + String.format("%.2f", maxRain) + " inches)");
         System.out.println("Month with least rain: " + months[minMonth] + " (" + String.format("%.2f", minRain) + " inches)");
-        System.out.println("Total rainfall for " + year + ": " + String.format("%.2f", total) + " inches");
+        System.out.println("\nTotal rainfall for " + year + ": " + String.format("%.2f", total) + " inches");
 
 
     }
@@ -55,6 +57,20 @@ public class Rainfall {
         }
         return -1;
      }
+    
+    public void viewTotals() {
+        double total = 0;
+        int count = 0;
+        for(int i = 0; i < rainfall.length; i++) {
+            for(int k = 0; k < 12; k++) {
+                total += rainfall[i][i];
+                count++;
+            }
+        }
+        double avg = total/ count;
+        System.out.printf("Total rainfall over all years: %.2f inches\n", total);
+        System.out.printf("Average rainfall: .%2f inches\n", avg);
+    }
 
 }
 

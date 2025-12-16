@@ -15,6 +15,25 @@ public class Main {
         return keyboard.nextInt();
     }
     public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        Rainfall rainfall = new Rainfall();
+        int op;
+
+        do {
+            op = menu(keyboard);
+            switch (op) {
+                case 1:
+                    System.out.print("Enter year (2022 - 2024): ");
+                    int year = keyboard.nextInt();
+                    rainfall.displayYearData(year);
+                    break;
+                
+                default:
+                    throw new AssertionError();
+
+            }
+        }while(op !=5);
+
             
     }
 }
