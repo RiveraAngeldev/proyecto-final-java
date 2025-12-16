@@ -2,8 +2,8 @@
 
 public class Rainfall {
     private double rainfall[][]; // [años][meses]
-    private int years[];
-    private String[] months; 
+    private int years[];        //array to store years
+    private String[] months;    //array to store months
 
     public Rainfall() {
         rainfall = new double[3][12];
@@ -20,7 +20,7 @@ public class Rainfall {
         rainfall[0][4] = 3.21; // 2022 - May
         rainfall[0][5] = 1.34; // 2022 - June
         rainfall[0][6] = 5.53; // 2022 - July
-        rainfall[0][7] = 6.31; // 2022 - Agust
+        rainfall[0][7] = 6.31; // 2022 - August
         rainfall[0][8] = 1.51; // 2022 - September
         rainfall[0][9] = 2.41; // 2022 - October
         rainfall[0][10] = 8.34; // 2022 - November
@@ -66,7 +66,7 @@ public class Rainfall {
         double minRain = rainfall[index][0];
         int maxMonth = 0;
         int minMonth = 0;
-        System.out.println("\nRianfall for " + year + ":");
+        System.out.println("\nRainfall for " + year + ":\n");
         for(int i = 0; i < 12; i++) {
             double rain = rainfall[index][i];
             System.out.println(months[i] + ": " + String.format("%.2f", rain) + " inches");
@@ -100,13 +100,13 @@ public class Rainfall {
         int count = 0;
         for(int i = 0; i < rainfall.length; i++) {
             for(int k = 0; k < 12; k++) {
-                total += rainfall[i][i];
+                total += rainfall[i][k];
                 count++;
             }
         }
         double avg = total/ count;
         System.out.printf("Total rainfall over all years: %.2f inches\n", total);
-        System.out.printf("Average rainfall: .%2f inches\n", avg);
+        System.out.printf("Average rainfall: %.2f inches\n", avg);
     }
 
     public void viewYearPeaks() {
@@ -114,7 +114,7 @@ public class Rainfall {
         for(int i = 0; i <rainfall.length; i++) {
             double sum = 0;
             for(int k = 0; k < 12; k++) {
-                sum += rainfall[i][i];
+                sum += rainfall[i][k];
 
             }
             yearTotal[i] = sum;
@@ -134,8 +134,8 @@ public class Rainfall {
                 minIndex = i;
             }
         }
-        System.out.printf("Year with most rain: %d (%.2f inche)\n", years[maxIndex], max);
-        System.out.printf("Year with least rain: %d (%.2f inche)\n", years[minIndex], min);
+        System.out.printf("Year with most rain: %d (%.2f inches)\n", years[maxIndex], max);
+        System.out.printf("Year with least rain: %d (%.2f inches)\n", years[minIndex], min);
     }
 
     public void displayDataTable() {
@@ -156,4 +156,3 @@ public class Rainfall {
 //Referencias:
 // https://docs.oracle.com/javase/tutorial/java/data/numberformat.html#:~:text=example%20would%20be-,System.,version%20with%20the%20following%20syntax:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html
-
