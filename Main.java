@@ -48,16 +48,11 @@ public class Main {
                     System.out.println("Goodbye!");
                     break;
 
-               
-               
-               
-                    default:
+                default:
                    System.out.println("Invalid option!!");
                    System.out.println("Choose between 1-5");
                    break;
             }
-        }while(op !=5);
-
-            
+        } while(op !=5);     
     }
 }

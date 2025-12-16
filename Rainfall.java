@@ -98,13 +98,13 @@ public class Rainfall {
     public void viewTotals() {
         double total = 0;
         int count = 0;
-        for(int i = 0; i < rainfall.length; i++) {
-            for(int k = 0; k < 12; k++) {
-                total += rainfall[i][k];
+        for(double year[] : rainfall) {
+            for(double rain : year) {
+                total += rain;
                 count++;
             }
         }
-        double avg = total/ count;
+        double avg = total / count;
         System.out.printf("Total rainfall over all years: %.2f inches\n", total);
         System.out.printf("Average rainfall: %.2f inches\n", avg);
     }
