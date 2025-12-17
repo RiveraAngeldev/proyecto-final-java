@@ -1,10 +1,22 @@
-
-
+/**
+ * The Rainfall class stores and processes rainfall data (in inches)
+ * for multiple years and months using a two dimensional array.
+ * 
+ * It allows the user to:
+ * - View rainfall data for a specific year
+ * - Calculate total and average rainfall
+ * - Identify years and months with the highest and lowest rainfall
+ * - Display all data in a formatted table
+ */
 public class Rainfall {
     private double rainfall[][]; // [años][meses]
     private int years[];        //array to store years
     private String[] months;    //array to store months
 
+    /**
+     * Constructor for the Rainfall class.
+     * Initializes the arrays by calling the initData method.
+     */
     public Rainfall() {
         rainfall = new double[3][12];
         years = new int[] {2022, 2023, 2024};
@@ -12,6 +24,14 @@ public class Rainfall {
 
         initData();
     }
+
+     /**
+     * Initializes the rainfall data for each year and month.
+     * The values represent rainfall measured in inches.
+     * This method is only used internally by the class.
+     * 
+     * @return void
+     */
     private void initData() {
         rainfall[0][0] = 2.11; // 2022 - January
         rainfall[0][1] = 1.13; // 2022 - February
@@ -55,6 +75,14 @@ public class Rainfall {
 
     }
 
+    /**
+     * Displays detailed rainfall information for a specific year,
+     * including monthly rainfall, total rainfall,
+     * and the months with the highest and lowest rainfall.
+     * 
+     * @param year the year to display data for
+     * @return void
+     */
     public void displayYearData(int year) {
         int index = getYearIndex(year);
         if(index == -1) {
@@ -88,6 +116,13 @@ public class Rainfall {
 
     }
     
+    /**
+     * Searches for a given year in the years array
+     * and returns its corresponding index.
+     * 
+     * @param year the year to search for
+     * @return the index of the year if found, or -1 if not found
+     */
     private int getYearIndex(int year) {
         for(int i = 0; i <years.length; i++) {
             if(years[i] == year) return i;
@@ -95,6 +130,12 @@ public class Rainfall {
         return -1;
      }
     
+    /**
+     * Calculates and displays the total rainfall across all years
+     * and the overall average rainfall.
+     * 
+     * @return void
+     */
     public void viewTotals() {
         double total = 0;
         int count = 0;
@@ -109,6 +150,12 @@ public class Rainfall {
         System.out.printf("Average rainfall: %.2f inches\n", avg);
     }
 
+    /**
+     * Determines and displays the year with the most rainfall
+     * and the year with the least rainfall.
+     * 
+     * @return void
+     */
     public void viewYearPeaks() {
         double yearTotal[] = new double[rainfall.length];
         for(int i = 0; i <rainfall.length; i++) {
@@ -138,6 +185,12 @@ public class Rainfall {
         System.out.printf("Year with least rain: %d (%.2f inches)\n", years[minIndex], min);
     }
 
+    /**
+     * Displays all rainfall data in a formatted table,
+     * showing years as rows and months as columns.
+     * 
+     * @return void
+     */
     public void displayDataTable() {
         System.out.printf("%-6s", "Year");
         for(String month : months) {
